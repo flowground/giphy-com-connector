@@ -1,0 +1,208 @@
+{
+    "title": "Giphy",
+    "description": "Giphy API",
+    "docsUrl": "https://developers.giphy.com/docs/",
+    "url": "https://api.apis.guru/v2/specs/giphy.com/1.0/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.giphy.com/v1",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "api_key": {
+                "label": "api_key (api_key)",
+                "viewClass": "TextFieldView"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "getGifsById": {
+            "main": "./lib/actions/getGifsById.js",
+            "title": "Get GIFs by ID",
+            "description": "A multiget version of the get GIF by ID endpoint.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getGifsById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "randomGif": {
+            "main": "./lib/actions/randomGif.js",
+            "title": "Random GIF",
+            "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/randomGif.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "searchGifs": {
+            "main": "./lib/actions/searchGifs.js",
+            "title": "Search GIFs",
+            "description": "Search all GIPHY GIFs for a word or phrase. Punctuation will be stripped and ignored.  Use a plus or url encode for phrases. Example paul+rudd, ryan+gosling or american+psycho.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/searchGifs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "translateGif": {
+            "main": "./lib/actions/translateGif.js",
+            "title": "Translate phrase to GIF",
+            "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIF\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/translateGif.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "trendingGifs": {
+            "main": "./lib/actions/trendingGifs.js",
+            "title": "Trending GIFs",
+            "description": "Fetch GIFs currently trending online. Hand curated by the GIPHY editorial team.  The data returned mirrors the GIFs showcased on the GIPHY homepage. Returns 25 results by default.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/trendingGifs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "getGifById": {
+            "main": "./lib/actions/getGifById.js",
+            "title": "Get GIF by Id",
+            "description": "Returns a GIF given that GIF's unique ID\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/getGifById.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "randomSticker": {
+            "main": "./lib/actions/randomSticker.js",
+            "title": "Random Sticker",
+            "description": "Returns a random GIF, limited by tag. Excluding the tag parameter will return a random GIF from the GIPHY catalog.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/randomSticker.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "searchStickers": {
+            "main": "./lib/actions/searchStickers.js",
+            "title": "Search Stickers",
+            "description": "Replicates the functionality and requirements of the classic GIPHY search, but returns animated stickers rather than GIFs.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/searchStickers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "translateSticker": {
+            "main": "./lib/actions/translateSticker.js",
+            "title": "Translate phrase to Sticker",
+            "description": "The translate API draws on search, but uses the GIPHY `special sauce` to handle translating from one vocabulary to another. In this case, words and phrases to GIFs.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/translateSticker.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "trendingStickers": {
+            "main": "./lib/actions/trendingStickers.js",
+            "title": "Trending Stickers",
+            "description": "Fetch Stickers currently trending online. Hand curated by the GIPHY editorial team. Returns 25 results by default.\n",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/trendingStickers.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

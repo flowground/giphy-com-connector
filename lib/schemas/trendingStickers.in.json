@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+        "limit": {
+            "type": "integer",
+            "format": "int32",
+            "default": 25
+        },
+        "offset": {
+            "type": "integer",
+            "format": "int32",
+            "default": 0
+        },
+        "rating": {
+            "type": "string"
+        }
+    }
+}
